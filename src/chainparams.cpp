@@ -55,10 +55,7 @@ static void convertSeed6(std::vector<CAddress>& vSeedsOut, const SeedSpec6* data
 static Checkpoints::MapCheckpoints mapCheckpoints =
     boost::assign::map_list_of
     (     0, uint256("9b6b907cc9670b9e96fe2671170d863cbac7a14f6c2efa98a23f778c5066bf41"))
-	(     200000, uint256("6d7973348fceb119ba1c7f3bbee703151dee58cb3de5c640f570d1754978a293"))
-	(     400000, uint256("e02be10951ac373c98effeddf037c72b3e4020b35570d64c32dbe9c804c5dd86"))
-	(     600000, uint256("8b91f34fb244ca28242cca157a1727ebc2dee69a2d212919e58bde911e444eff"))
-	(     800000, uint256("f727c256e337c92ca90fb0d17b9193939d6440029f5dcafda71f10c189f25d82"));
+;
     
 static const Checkpoints::CCheckpointData data = {
     &mapCheckpoints,
@@ -105,12 +102,12 @@ public:
          * The characters are rarely used upper ASCII, not valid as UTF-8, and produce
          * a large 4-byte int at any alignment.
          */
-        pchMessageStart[0] = 0x56;
-        pchMessageStart[1] = 0x4f;
-        pchMessageStart[2] = 0x49;
-        pchMessageStart[3] = 0x44;
+        pchMessageStart[0] = 0xf6;
+        pchMessageStart[1] = 0x5f;
+        pchMessageStart[2] = 0xe9;
+        pchMessageStart[3] = 0xd4;
         vAlertPubKey = ParseHex("04a983220ea7a38a7106385003fef77896538a382a0dcc389cc45f3c98751d9af423a097789757556259351198a8aaa628a1fd644c3232678c5845384c744ff8d7");
-        nDefaultPort = 48882;
+        nDefaultPort = 88111;
         bnProofOfWorkLimit = ~uint256(0) >> 20;
         nSubsidyHalvingInterval = 210000;
         nMaxReorganizationDepth = 100;
@@ -120,20 +117,20 @@ public:
         nMinerThreads = 0;
         nTargetTimespan = 1 * 60; // Crave: 1 day
         nTargetSpacing = 1 * 60;  // Crave: 1 minute
-        nMaturity = 87;
+        nMaturity = 6;
         nMasternodeCountDrift = 20;
-        nMaxMoneyOut = 1000000000 * COIN;
+        nMaxMoneyOut = 10000000000 * COIN;
 
         /** Height or Time Based Activations **/
-        nLastPOWBlock = 1001;
+        nLastPOWBlock = 100;
         nModifierUpdateBlock = 0;
-        nZerocoinStartHeight = 1002;
-        nBlockEnforceSerialRange = 1004; //Enforce serial range starting this block
-        nBlockRecalculateAccumulators = 1005; //Trigger a recalculation of accumulators
-        nBlockFirstFraudulent = 1003; //First block that bad serials emerged
-        nBlockLastGoodCheckpoint = 1005; //Last valid accumulator checkpoint
+        nZerocoinStartHeight = 102;
+        nBlockEnforceSerialRange = 104; //Enforce serial range starting this block
+        nBlockRecalculateAccumulators = 105; //Trigger a recalculation of accumulators
+        nBlockFirstFraudulent = 103; //First block that bad serials emerged
+        nBlockLastGoodCheckpoint = 105; //Last valid accumulator checkpoint
         nZerocoinStartTime = 1515434000; // January 08, 2018 05:53:20 PM
-        nBlockEnforceInvalidUTXO = 1001; //Start enforcing the invalid UTXO's
+        nBlockEnforceInvalidUTXO = 101; //Start enforcing the invalid UTXO's
 
         /**
          * Build the genesis block. Note that the output of the genesis coinbase cannot
@@ -166,7 +163,7 @@ public:
 //        vSeeds.push_back(CDNSSeedData("167.86.127.44", "167.86.127.44"));
 //        vSeeds.push_back(CDNSSeedData("149.28.80.199", "149.28.80.199"));
 
-        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 70);
+        base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1, 25);  // starts with 'B'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1, 85);
         base58Prefixes[SECRET_KEY] = std::vector<unsigned char>(1, 153);
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x88)(0xB2)(0x1E).convert_to_container<std::vector<unsigned char> >();
